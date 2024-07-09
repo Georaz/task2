@@ -1,0 +1,23 @@
+
+•	java:S116	"NRename this field "URL" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ØØ¬³şÿÿÿÿ8¸é¬”ˆ2J$5069267a-ca43-4a33-b90d-2ad246b3ef0a
+–	java:S116
+"ORename this field "USER" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(É¶Âßøÿÿÿÿ8¸é¬”ˆ2J$5bbe96db-6e5e-43e1-960e-f7138a009b73
+•	java:S116"SRename this field "PASSWORD" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÎÂ‰Ö8¸é¬”ˆ2J$406eaad8-465d-4f68-9d6f-ca2d9865de62
+i
+java:S1170	"!Make this final field static too.(ØØ¬³şÿÿÿÿ8¸é¬”ˆ2J$c2cd0889-e9a4-4275-be42-b5241a2adf14
+i
+java:S1170
+"!Make this final field static too.(É¶Âßøÿÿÿÿ8¸é¬”ˆ2J$0e6602ff-1a7e-40fb-bf9b-4714758cb97a
+d
+java:S1170"!Make this final field static too.(ÎÂ‰Ö8¹é¬”ˆ2J$ff6b7d51-616c-4902-b92b-478af2dd3047
+y
+java:S6437"6Revoke and change this password, as it is compromised.(åÔÉÊ8»é¬”ˆ2J$2f34bd20-fc82-4d78-b2d9-4bb62715e24c
+l	java:S106"+Replace this use of System.out by a logger.(ß›8¼é¬”ˆ2J$08e1c309-a7a6-4a97-b155-553ab11e8a44
+r	java:S106#"+Replace this use of System.out by a logger.(ıÔ—Œÿÿÿÿÿ8¾é¬”ˆ2J$378a73db-e031-42b9-9ffb-f3155c54476e
+r	java:S106-"+Replace this use of System.out by a logger.(ô³ù‰ùÿÿÿÿ8¿é¬”ˆ2J$3c113050-7d68-4317-a005-97ccebecf828
+l	java:S106?"+Replace this use of System.out by a logger.(ÑÚ×78Àé¬”ˆ2J$569a945b-d35c-4d74-9e40-4d42bc6076e1
+q
+java:S1481F")Remove this unused "drop" local variable.(ÃßšŸüÿÿÿÿ8Áé¬”ˆ2J$273a9f89-989f-47fc-a638-f66ecf0e06be
+r	java:S106H"+Replace this use of System.out by a logger.(¶È¬òÿÿÿÿÿ8Áé¬”ˆ2J$0b775768-c74c-44cf-9856-a720cef4c3e1
+m	java:S106Z"+Replace this use of System.out by a logger.(­§Ÿû8Ãé¬”ˆ2J$d75b0a60-07b4-43d9-ab84-b71ed738b974
+r	java:S106d"+Replace this use of System.out by a logger.(®Üÿòıÿÿÿÿ8Ã¡®”ˆ2J$69faf068-72e8-4e06-9071-1f1ca589301d
