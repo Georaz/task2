@@ -1,5 +1,6 @@
 package org.example.dao;
 
+import org.example.dao.interfaces.UserDaoJDBC;
 import org.example.model.User;
 import org.example.util.DBConnection;
 
@@ -7,7 +8,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserDaoJDBCImpl {
+public class UserDaoJDBCImpl implements UserDaoJDBC {
     Connection connection = DBConnection.getDBConnection();
 
     public UserDaoJDBCImpl() throws SQLException {
@@ -18,6 +19,7 @@ public class UserDaoJDBCImpl {
      * @param name
      * @param age
      */
+    @Override
     public void saveUser(String name, int age) {
         String query = "INSERT INTO users(name, age) VALUES(?,?)";
         try (PreparedStatement pstmt = connection.prepareStatement(query)) {
@@ -33,9 +35,9 @@ public class UserDaoJDBCImpl {
      * getting a user by id
      * @param id
      * @return
-     * @throws SQLException
      */
-    public User getUser(int id) throws SQLException {
+    @Override
+    public User getUser(int id) {
         String query = "SELECT name, age FROM users WHERE id = ?";
         try (PreparedStatement pstmt = connection.prepareStatement(query)) {
             pstmt.setInt(1, id);
@@ -58,6 +60,7 @@ public class UserDaoJDBCImpl {
      * getting a list of users
      * @return
      */
+    @Override
     public List<User> getAllUsers() {
         List<User> users = new ArrayList<>();
         try (Statement statement = connection.createStatement()) {
@@ -83,6 +86,7 @@ public class UserDaoJDBCImpl {
      * deleting a user by id
      * @param id
      */
+    @Override
     public void deleteUser(int id) {
         String query = "DELETE FROM users WHERE id = ?";
         try (PreparedStatement pstmt = connection.prepareStatement(query)) {
@@ -97,9 +101,9 @@ public class UserDaoJDBCImpl {
      * getting a list of courses user enlisted
      * @param user_id
      * @return
-     * @throws SQLException
      */
-    public List<Integer> getCourseList(int user_id) throws SQLException {
+    @Override
+    public List<Integer> getCourseList(int user_id) {
         List<Integer> courseList = new ArrayList<>();
         String query = "SELECT course_id FROM user_courses WHERE user_id = ?";
         try (PreparedStatement pstm = connection.prepareStatement(query)) {

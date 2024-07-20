@@ -20,7 +20,7 @@ public class UserCourseService {
     public void addUserToCourse(UserCourseDto userCourseDto) {
         try {
             userCourseDao.addUserCourse(userCourseDto.getUserId(), userCourseDto.getCourseId());
-        } catch (SQLException e) {
+        } catch (Exception e) {
             System.err.println("Error adding user to course: " + e.getMessage());
             e.printStackTrace();
         }

@@ -1,5 +1,6 @@
 package org.example.dao;
 
+import org.example.dao.interfaces.CourseDaoJDBC;
 import org.example.model.Course;
 import org.example.util.DBConnection;
 
@@ -7,7 +8,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CourseDaoJDBCImpl {
+public class CourseDaoJDBCImpl implements CourseDaoJDBC {
     Connection connection = DBConnection.getDBConnection();
 
     public CourseDaoJDBCImpl() throws SQLException {
@@ -15,9 +16,11 @@ public class CourseDaoJDBCImpl {
 
     /**
      * saving new course in DB
+     *
      * @param name
      * @param cost
      */
+    @Override
     public void saveCourse(String name, double cost) {
         String query = "INSERT INTO courses(name, cost) VALUES(?,?)";
         try (PreparedStatement pstmt = connection.prepareStatement(query)) {
@@ -31,11 +34,12 @@ public class CourseDaoJDBCImpl {
 
     /**
      * getting the course by id
+     *
      * @param id
      * @return
-     * @throws SQLException
      */
-    public Course getCourse(int id) throws SQLException {
+    @Override
+    public Course getCourse(int id) {
         String query = "SELECT id, name, cost FROM courses WHERE id = ?";
         try (PreparedStatement pstmt = connection.prepareStatement(query)) {
             pstmt.setInt(1, id);
@@ -57,8 +61,10 @@ public class CourseDaoJDBCImpl {
 
     /**
      * getting a list of courses
+     *
      * @return
      */
+    @Override
     public List<Course> getAllCourses() {
         List<Course> courses = new ArrayList<>();
         try (Statement statement = connection.createStatement()) {
@@ -82,8 +88,10 @@ public class CourseDaoJDBCImpl {
 
     /**
      * deleting the course by id
+     *
      * @param id
      */
+    @Override
     public void deleteCourse(int id) {
         String query = "DELETE FROM courses WHERE id = ?";
         try (PreparedStatement pstmt = connection.prepareStatement(query)) {
@@ -96,11 +104,12 @@ public class CourseDaoJDBCImpl {
 
     /**
      * setting a curator in OneToMany schema
+     *
      * @param user_id
      * @param id
-     * @throws SQLException
      */
-    public void setCurator(int user_id, int id) throws SQLException {
+    @Override
+    public void setCurator(int user_id, int id) {
         String query = "UPDATE courses SET curator = (SELECT id FROM users WHERE id = ?) WHERE id = ?";
         try (PreparedStatement pstmt = connection.prepareStatement(query)) {
             pstmt.setInt(1, user_id);
@@ -113,9 +122,11 @@ public class CourseDaoJDBCImpl {
 
     /**
      * getting the curator by id
+     *
      * @param id
      * @return
      */
+    @Override
     public int getCurator(int id) {
         String query = "SELECT curator FROM courses WHERE id = ?";
         try (PreparedStatement pstmt = connection.prepareStatement(query)) {
@@ -138,11 +149,12 @@ public class CourseDaoJDBCImpl {
 
     /**
      * getting a list of users enlisted the course
+     *
      * @param course_id
      * @return
-     * @throws SQLException
      */
-    public List<Integer> getUserList(int course_id) throws SQLException {
+    @Override
+    public List<Integer> getUserList(int course_id) {
         List<Integer> userList = new ArrayList<>();
         String query = "SELECT user_id FROM user_courses WHERE course_id = ?";
         try (PreparedStatement pstm = connection.prepareStatement(query)) {

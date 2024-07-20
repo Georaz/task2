@@ -1,12 +1,13 @@
 package org.example.dao;
 
+import org.example.dao.interfaces.UserCourseDaoJDBC;
 import org.example.util.DBConnection;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class UserCourseDaoJDBCImpl {
+public class UserCourseDaoJDBCImpl implements UserCourseDaoJDBC {
     Connection connection = DBConnection.getDBConnection();
 
     public UserCourseDaoJDBCImpl() throws SQLException {
@@ -14,11 +15,11 @@ public class UserCourseDaoJDBCImpl {
 
     /**
      * getting a pair of user_id and course_id in ManyToMany schema
+     *
      * @param user_id
      * @param course_id
-     * @throws SQLException
      */
-    public void addUserCourse(int user_id, int course_id) throws SQLException {
+    public void addUserCourse(int user_id, int course_id) {
         String query = "INSERT INTO user_courses (user_id, course_id) VALUES (?, ?)";
         try (PreparedStatement pstm = connection.prepareStatement(query)) {
             pstm.setInt(1, user_id);
